@@ -9,12 +9,12 @@
     "prepare:rinkeby": "mustache config/4.json subgraph.template.yaml > subgraph.yaml",
     "prepare:mumbai": "mustache config/80001.json subgraph.template.yaml > subgraph.yaml",
     "prepare:local": "mustache config/50.json subgraph.template.yaml > subgraph.yaml",
-    "create": "graph create sporkspatula/zora-v1-subgraph --node https://api.thegraph.com/deploy/",
+    "create": "graph create publu/zora-v1-subgraph --node https://api.thegraph.com/deploy/",
     "create-local": "graph create sporkspatula/zora-v1-subgraph --node http://127.0.0.1:8020",
     "test": "jest",
     "codegen": "graph codegen --output-dir types",
     "build": "graph build",
-    "deploy": "graph deploy sporkspatula/zora-v1-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy publu/zora-v1-subgraph --ipfs https://ipfs.infura.io:5001/ --node https://mumbai-graph.matic.today",
     "deploy-local": "graph deploy sporkspatula/zora-v1-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
@@ -40,8 +40,7 @@
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "jest": {
     "preset": "ts-jest"
   }
