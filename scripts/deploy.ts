@@ -11,12 +11,12 @@ async function start() {
     throw new Error('--chainId chain ID is required')
   }
   const path = `${process.cwd()}/.env${
-    args.chainId === 1 ? '.prod' : args.chainId === 4 ? '.dev' : '.local'
+    args.chainId === 80001 ? '.prod' : args.chainId === 4 ? '.dev' : '.local'
   }`
 
   await require('dotenv').config({ path })
-  const provider = new JsonRpcProvider(process.env.RPC_ENDPOINT)
-  const wallet = new Wallet(`0x${process.env.PRIVATE_KEY}`, provider)
+  const provider = new JsonRpcProvider("https://rpc-mumbai.maticvigil.com/")
+  const wallet = new Wallet(`0x488cc1c01dfc5dede4951334923bbfb60ea348d71ea31bc1eb1b499b675454cb`, provider)
 
   const sharedAddressPath = `${process.cwd()}/config/${args.chainId}.json`
   // @ts-ignore
@@ -59,7 +59,7 @@ async function start() {
   await tx.wait()
   console.log(`Market configured.`)
 
-  config.network = args.chainId === 4 ? 'rinkeby' : 'mainnet'
+  config.network = args.chainId === 4 ? 'rinkeby' : 'mumbai'
 
   await fs.writeFile(sharedAddressPath, JSON.stringify(config, null, 2))
   console.log(`Contracts deployed and configured. ☼☽`)

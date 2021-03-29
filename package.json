@@ -4,7 +4,7 @@
   "scripts": {
     "chain": "ganache-cli --networkId 50 --accounts 20 -e 10000000000 -l 10000000 -m 'concert load couple harbor equip island argue ramp clarify fence smart topic'",
     "seed-graph": "ts-node scripts/seed",
-    "deploy-contracts": "ts-node scripts/deploy.ts",
+    "deploy-contracts": "ts-node scripts/deploy.ts --chainId 80001",
     "prepare:mainnet": "mustache config/1.json subgraph.template.yaml > subgraph.yaml",
     "prepare:rinkeby": "mustache config/4.json subgraph.template.yaml > subgraph.yaml",
     "prepare:mumbai": "mustache config/80001.json subgraph.template.yaml > subgraph.yaml",
@@ -14,7 +14,7 @@
     "test": "jest",
     "codegen": "graph codegen --output-dir types",
     "build": "graph build",
-    "deploy": "graph deploy publu/zora-v1-subgraph --ipfs https://ipfs.infura.io:5001/ --node https://mumbai-graph.matic.today",
+    "deploy": "graph deploy publu/zorav1subgraphmumbai  --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-local": "graph deploy sporkspatula/zora-v1-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
